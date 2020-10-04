@@ -36,6 +36,13 @@ client.connect(err => {
       res.send(documents[0]);
     })
 })
+app.post('/productsByKeys', (req, res) => {
+    const productKeys = req.body;
+    productsCollection.find({key: { $in: productKeys}})
+    .toArray((err, documents) => {
+        res.send(documents);
+    })
+})
   console.log('Database Connected');
 });
 
