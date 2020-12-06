@@ -55,4 +55,4 @@ app.post('/addOrder', (req, res) => {
   console.log('Database Connected');
 });
 
-app.listen(port)
+app.listen(process.env.PORT || port)
